@@ -1,12 +1,11 @@
 from wirecardpy.utils import util
-from wirecardpy.utils import constants_sandbox
+from wirecardpy.utils import constants
 
 
 class Order(object):
-    """docstring for Order"""
     @staticmethod
     def create(ownId, items, customer):
-        url = constants_sandbox.ORDER_URL if util.is_sandbox() else ''
+        url = constants.ORDER_URL
         data = {
             'ownId': ownId,
             'items': items,
