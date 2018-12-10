@@ -6,4 +6,9 @@ class Account(object):
     @staticmethod
     def exists(data):
         url = constants.ACCOUNT_EXISTS
-        util.request_get(url, data)
+        return util.request_get(url, data)
+
+    @staticmethod
+    def create(data):
+        url = constants.ACCOUNT_URL
+        return util.request_post(url, data)

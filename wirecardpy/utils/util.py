@@ -21,7 +21,7 @@ def is_sandbox():
     return TOKEN['sandbox'] if 'sandbox' in TOKEN else False
 
 
-def request_get(url, data):
+def request_get(url, data={}):
     return requests.get(url, json=data, headers=headers())
 
 
