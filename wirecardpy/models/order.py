@@ -1,4 +1,4 @@
-from wirecardpy import util
+from wirecardpy.utils import util
 
 
 class Order(object):
