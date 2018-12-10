@@ -12,3 +12,7 @@ class Account(object):
     def create(data):
         url = constants.ACCOUNT_URL
         return util.request_post(url, data)
+
+    def get(account_id):
+        url = constants.ACCOUNT_GET_URL.format(account_id)
+        return util.request_get(url)

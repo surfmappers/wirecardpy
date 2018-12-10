@@ -9,6 +9,7 @@ BASE_URL = BASE_URL_SANDBOX if is_sandbox() else BASE_URL_LIVE
 
 # Account constants
 ACCOUNT_URL = BASE_URL + 'accounts/'
+ACCOUNT_GET_URL = BASE_URL + ACCOUNT_URL + '/{0}'
 ACCOUNT_EXISTS = BASE_URL + ACCOUNT_URL + '/exists'
 
 # Order constants
