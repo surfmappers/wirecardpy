@@ -1,5 +1,4 @@
-from wirecardpy import util
-from wirecardpy.utils import constants
+from wirecardpy.utils import util, constants
 
 
 class Payment(object):
