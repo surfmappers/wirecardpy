@@ -1,5 +1,6 @@
 import base64
 import requests
+from wirecardpy.utils import constants
 
 TOKEN = {}
 
@@ -14,11 +15,11 @@ def headers():
 def set_api_authorization(api_token, api_key, sandbox=False):
     global TOKEN
     TOKEN['API_TOKEN'] = base64.b64encode('{}:{}'.format(api_token, api_key))
-    TOKEN['sandbox'] = sandbox
+    TOKEN['base_url'] = constants.BASE_URL_SANDBOX if sandbox else constants.BASE_URL_LIVE
 
 
-def is_sandbox():
-    return TOKEN['sandbox'] if 'sandbox' in TOKEN else False
+def get_base_url():
+    return TOKEN['base_url']
 
 
 def request_get(url, data={}):

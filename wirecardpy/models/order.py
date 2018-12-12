@@ -5,7 +5,7 @@ from wirecardpy.utils import constants
 class Order(object):
     @staticmethod
     def create(ownId, items, customer):
-        url = constants.ORDER_URL
+        url = util.get_base_url() + constants.ORDER_URL
         data = {
             'ownId': ownId,
             'items': items,
