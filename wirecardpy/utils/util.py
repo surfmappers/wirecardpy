@@ -36,7 +36,7 @@ def get_base_url():
 
 
 def request_get(url, data={}):
-    return validate_response(requests.get(url, json=data, headers=headers()))
+    return validate_response(requests.get(url, params=data, headers=headers()))
 
 
 def request_post(url, data):
