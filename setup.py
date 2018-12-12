@@ -3,7 +3,7 @@ import setuptools
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
-requires = [i.strip() for i in open('requirements.txt').readline()]
+requires = [i.strip() for i in open('requirements.txt').readlines()]
 
 setuptools.setup(
     name='wirecardpy',
