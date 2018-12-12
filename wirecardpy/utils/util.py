@@ -1,7 +1,12 @@
 import base64
 import requests
+from wirecardpy.utils import constants
 
 TOKEN = {}
+
+
+class RequestException(Exception):
+    pass
 
 
 def headers():
@@ -11,19 +16,28 @@ def headers():
     return _headers
 
 
+def validate_response(response):
+    if response.status_code == 200:
+        return response.json()
+    else:
+        response_json = response.json()
+        response_json['status_code'] = response.status_code
+        raise RequestException(response_json)
+
+
 def set_api_authorization(api_token, api_key, sandbox=False):
     global TOKEN
     TOKEN['API_TOKEN'] = base64.b64encode('{}:{}'.format(api_token, api_key))
-    TOKEN['sandbox'] = sandbox
+    TOKEN['base_url'] = constants.BASE_URL_SANDBOX if sandbox else constants.BASE_URL_LIVE
 
 
-def is_sandbox():
-    return TOKEN['sandbox'] if 'sandbox' in TOKEN else False
+def get_base_url():
+    return TOKEN['base_url']
 
 
 def request_get(url, data={}):
-    return requests.get(url, json=data, headers=headers())
+    return validate_response(requests.get(url, json=data, headers=headers()))
 
 
 def request_post(url, data):
-    return requests.post(url, json=data, headers=headers())
+    return validate_response(requests.post(url, json=data, headers=headers()))
