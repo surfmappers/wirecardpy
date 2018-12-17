@@ -6,7 +6,9 @@ TOKEN = {}
 
 
 class RequestException(Exception):
-    pass
+    def __init__(self, msg, errors):
+        Exception.__init__(self, msg)
+        self.request_errors = errors
 
 
 def headers():
@@ -20,9 +22,12 @@ def validate_response(response):
     if response.status_code == 200:
         return response.json()
     else:
+        status_code = response.status_code
         response_json = response.json()
-        response_json['status_code'] = response.status_code
-        raise RequestException(response_json)
+        response_json['status_code'] = status_code
+        error_message = 'WIRECARD REQUEST ERROR: Status ' + str(status_code) + \
+                        'Request not sent. May contain errors as missing required parameters or transcription error. '
+        raise RequestException(error_message, response_json)
 
 
 def set_api_authorization(api_token, api_key, sandbox=False):
