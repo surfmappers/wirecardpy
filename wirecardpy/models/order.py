@@ -6,4 +6,4 @@ class Order(object):
     @staticmethod
     def create(data):
         url = util.get_base_url() + constants.ORDER_URL
-        return util.request_post(url=url, data=data).json()
+        return util.request_post(url=url, data=data)
