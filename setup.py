@@ -7,7 +7,7 @@ requires = [i.strip() for i in open('requirements.txt').readlines()]
 
 setuptools.setup(
     name='wirecardpy',
-    version='0.4.1',
+    version='0.4.2',
     description='Python Library to Wirecard (old MOIP in Brazil) API routes.',
     long_description=long_description,
     long_description_content_type='text/markdown',
