@@ -9,9 +9,9 @@ class Account(object):
         return util.request_get(url, data)
 
     @staticmethod
-    def create(data):
+    def create(access_token, data):
         url = util.get_base_url() + constants.ACCOUNT_URL
-        return util.request_post(url, data)
+        return util.request_post(url, data, access_token=access_token)
 
     def get(account_id):
         url = util.get_base_url() + constants.ACCOUNT_GET_URL.format(account_id)
