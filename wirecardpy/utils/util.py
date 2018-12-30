@@ -1,5 +1,6 @@
 import base64
 import requests
+import sys
 from wirecardpy.utils import constants
 
 TOKEN = {}
@@ -38,7 +39,12 @@ def validate_response(response):
 
 def set_api_authorization(api_token, api_key, sandbox=False):
     global TOKEN
-    TOKEN['API_TOKEN'] = base64.b64encode('{}:{}'.format(api_token, api_key)).encode('utf-8')
+    to_encode = '{}:{}'.format(api_token, api_key)
+    if sys.version_info >= (3, 0):
+        to_encode = to_encode.encode('utf-8')
+        TOKEN['API_TOKEN'] = base64.b64encode(to_encode).decode('utf-8')
+    else:
+        TOKEN['API_TOKEN'] = base64.b64encode(to_encode).encode('utf-8')
     TOKEN['base_url'] = constants.BASE_URL_SANDBOX if sandbox else constants.BASE_URL_LIVE
 
 
