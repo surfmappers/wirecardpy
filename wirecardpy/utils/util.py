@@ -46,8 +46,12 @@ def get_base_url():
     return TOKEN['base_url']
 
 
-def request_get(url, data={}):
-    return validate_response(requests.get(url, params=data, headers=headers()))
+def request_get(url, data={}, access_token=None):
+    if access_token:
+        auth_headers = oauth2_headers(access_token)
+    else:
+        auth_headers = headers()
+    return validate_response(requests.get(url, params=data, headers=auth_headers))
 
 
 def request_post(url, data, access_token=None):

@@ -14,3 +14,6 @@ ORDER_PAYMENT_URL = ORDER_URL + '{0}/payments'
 # Bank Account constants
 BANK_ACCOUNT_CREATE = 'accounts/{0}/bankaccounts'
 BANK_ACCOUNT_ID = 'bankaccounts/{0}'
+
+# Balance
+BALANCE_URL = 'balances'
