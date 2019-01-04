@@ -10,3 +10,6 @@ ACCOUNT_EXISTS = ACCOUNT_URL + 'exists'
 # Order constants
 ORDER_URL = 'orders/'
 ORDER_PAYMENT_URL = ORDER_URL + '{0}/payments'
+
+# Bank Account constants
+BANK_ACCOUNT_CREATE = 'accounts/{0}/bankaccounts'
