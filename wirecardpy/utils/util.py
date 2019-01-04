@@ -56,3 +56,8 @@ def request_post(url, data, access_token=None):
     else:
         auth_headers = headers()
     return validate_response(requests.post(url, json=data, headers=auth_headers))
+
+
+def request_put(url, data, access_token):
+    auth_headers = oauth2_headers(access_token)
+    return validate_response(requests.put(url, json=data, headers=auth_headers))

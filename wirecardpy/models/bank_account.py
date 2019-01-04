@@ -7,3 +7,8 @@ class BankAccount(object):
     def create(access_token, account_id, data):
         url = constants.BANK_ACCOUNT_CREATE.format(account_id)
         util.request_post(url, data, access_token=access_token)
+
+    @staticmethod
+    def update(access_token, bank_account_id, data):
+        url = constants.BANK_ACCOUNT_ID.format(bank_account_id)
+        util.request_put(url, data, access_token)
