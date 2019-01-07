@@ -3,3 +3,4 @@ from wirecardpy.models.account import Account
 from wirecardpy.models.order import Order
 from wirecardpy.models.payment import Payment
 from wirecardpy.models.bank_account import BankAccount
+from wirecardpy.models.balance import Balance
