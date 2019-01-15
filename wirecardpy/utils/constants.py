@@ -17,3 +17,7 @@ BANK_ACCOUNT_ID = 'bankaccounts/{0}'
 
 # Balance
 BALANCE_URL = 'balances'
+
+# Transfer
+TRANSFER_URL = 'transfers'
+ANTICIPATION_ESTIMATIVE_URL = 'anticipationestimates?amount={0}'

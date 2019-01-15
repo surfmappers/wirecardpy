@@ -31,7 +31,11 @@ def validate_response(response):
         return response.json()
     else:
         status_code = response.status_code
-        response_json = response.json()
+        try:
+            response_json = response.json()
+        except Exception as e:
+            response_json = {'errors': [{'description': 'WIRECARD RETURN ERROR: ' + e.message}]}
+
         error_message = 'WIRECARD REQUEST ERROR: Status ' + str(status_code) + ' ' + \
                         'Request not sent. May contain errors as missing required parameters or transcription error. '
         raise RequestException(error_message, response_json)
@@ -65,6 +69,7 @@ def request_post(url, data, access_token=None):
         auth_headers = oauth2_headers(access_token)
     else:
         auth_headers = headers()
+    print(auth_headers)
     return validate_response(requests.post(url, json=data, headers=auth_headers))
 
 
