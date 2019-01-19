@@ -75,3 +75,8 @@ def request_post(url, data, access_token=None):
 def request_put(url, data, access_token):
     auth_headers = oauth2_headers(access_token)
     return validate_response(requests.put(url, json=data, headers=auth_headers))
+
+
+def request_delete(url, access_token):
+    auth_headers = oauth2_headers(access_token)
+    return validate_response(requests.delete(url, headers=auth_headers))

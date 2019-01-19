@@ -6,3 +6,4 @@ from wirecardpy.models.bank_account import BankAccount
 from wirecardpy.models.balance import Balance
 from wirecardpy.models.transfer import Transfer
 from wirecardpy.models.anticipation import Anticipation
+from wirecardpy.models.notification import Notification
