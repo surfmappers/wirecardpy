@@ -9,5 +9,5 @@ class Notification(object):
         return util.request_post(url, data, access_token=access_token)
 
     def remove(notification_id):
-        url = util.get_base_url() + constants.REMOVE_NOTIFICATION_URL(notification_id)
+        url = util.get_base_url() + constants.REMOVE_NOTIFICATION_URL.format(notification_id)
         return util.request_delete(url)
