@@ -29,7 +29,7 @@ def oauth2_headers(access_token):
 def validate_response(response):
     if response.status_code == 200 or response.status_code == 201:
         return response.json()
-    else:
+    elif response.status_code != 204:
         status_code = response.status_code
         try:
             response_json = response.json()
