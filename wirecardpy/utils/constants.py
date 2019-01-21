@@ -21,3 +21,7 @@ BALANCE_URL = 'balances'
 # Transfer
 TRANSFER_URL = 'transfers'
 ANTICIPATION_ESTIMATIVE_URL = 'anticipationestimates?amount={0}'
+
+# Notification
+NOTIFICATION_URL = 'preferences/notifications'
+REMOVE_NOTIFICATION_URL = NOTIFICATION_URL + '/{}'

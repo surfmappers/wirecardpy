@@ -29,7 +29,7 @@ def oauth2_headers(access_token):
 def validate_response(response):
     if response.status_code == 200 or response.status_code == 201:
         return response.json()
-    else:
+    elif response.status_code != 204:
         status_code = response.status_code
         try:
             response_json = response.json()
@@ -75,3 +75,8 @@ def request_post(url, data, access_token=None):
 def request_put(url, data, access_token):
     auth_headers = oauth2_headers(access_token)
     return validate_response(requests.put(url, json=data, headers=auth_headers))
+
+
+def request_delete(url, access_token):
+    auth_headers = oauth2_headers(access_token)
+    return validate_response(requests.delete(url, headers=auth_headers))
