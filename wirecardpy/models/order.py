@@ -1,15 +1,9 @@
-from wirecardpy import util
+from wirecardpy.utils import util
+from wirecardpy.utils import constants
 
 
 class Order(object):
-    """docstring for Order"""
     @staticmethod
-    def create(ownId, items, customer):
-        url = 'https://sandbox.moip.com.br/v2/orders'
-        data = {
-            'ownId': ownId,
-            'items': items,
-            'customer': customer
-        }
-
-        return util.request_post(url=url, data=data).json()
+    def create(data):
+        url = util.get_base_url() + constants.ORDER_URL
+        return util.request_post(url=url, data=data)
