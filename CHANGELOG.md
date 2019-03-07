@@ -10,3 +10,4 @@
 * Notifications
 * Validations to requests response
 * Feature requests with access token when necessary
+* Changed Notification Removal method to static
